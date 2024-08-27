@@ -57,6 +57,15 @@ function bezier:GetBezier(startTime, endTime, startValue, endValue,nowtime,bezie
     local lf = 0
     local rl = 1
     local mid = 0.5
+
+    if timePercent == 1 then
+        local ky = startValue + (endValue - startValue) * time_to_x(bezierTable,timePercent)
+        return ky
+    elseif timePercent == 0 then
+        local ky = startValue + (endValue - startValue) * time_to_x(bezierTable,timePercent)
+        return ky
+    end
+
     while rl - lf > accuracy do --精度之外
         --算出x和时间百分比的距离
         mid = (lf + rl) / 2
